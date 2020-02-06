@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="DataController">
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="recordType" type="String" access="global" default="Account" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="dataLength" type="Integer" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="totalNumberOfRows" type="Integer" default="10"/>
+    <!-- Number of aditional rows displaying on LoadMore on back -->
+    <aura:attribute name="initialRows" 
+                    type="Integer" 
+                    access="global"/> 
+    <!-- Offset number of skipping rows as argument on back-->
+    <aura:attribute name="rowNumberOffset" 
+                    type="Integer" 
+                    default="0"/> 
+    <!-- Number of already displayed rows-->
+    <aura:attribute name="currentOffsetCount" type="Integer" default="0"/> 
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
+    <aura:attribute name="enableInfiniteLoading" type="Boolean" default="true"/>
+    <aura:attribute name="loadMoreStatus" type="String" default="Loading .... "/>
+
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String" />
+    <aura:attribute name="defaultSortDirection" type="String" />
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <!-- BODY -->
+    <div style="height: 400px">
+        <div class="slds-box slds-theme_default">
+            <h1> Total Rows : {! v.totalNumberOfRows}</h1>
+            <h1> Uploaded: {! v.dataLength}</h1>
+            <h1> Step: {! v.initialRows}</h1>
+        </div>
+        <lightning:datatable columns="{! v.columns }"
+                             data="{! v.data }"
+                             keyField="id"
+                             hideCheckboxColumn="true"
+                             showRowNumberColumn="true"
+                             enableInfiniteLoading="{! v.enableInfiniteLoading }"
+                             sortedBy="{! v.sortedBy }"
+                             sortedDirection="{! v.sortedDirection }"
+                             defaultSortDirection="{! v.defaultSortDirection }"
+                             onsort="{! c.updateColumnSorting }"
+                             onloadmore="{! c.loadMoreData }"/>
+    </div>
+    <div class="slds-box slds-theme_shade slds-theme_alert-texture slds-align_absolute-center">
+    {! v.loadMoreStatus }
+    </div>
+</aura:component>

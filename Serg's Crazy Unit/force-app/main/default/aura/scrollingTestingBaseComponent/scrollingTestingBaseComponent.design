@@ -1,0 +1,10 @@
+<design:component>
+    <design:attribute name="recordType" 
+                      label="Choose sObject" 
+                      description="Choose sObject" 
+                      datasource="Account, Contact" 
+                      default="Account"/>
+    <design:attribute name="initialRows" 
+                      label="Select number of rows to upload by step" 
+                      default="30"/>
+</design:component>
