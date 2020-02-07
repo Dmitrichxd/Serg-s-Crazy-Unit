@@ -1,0 +1,10 @@
+<design:component >
+    <design:attribute name="fieldsToDisplay" 
+    label="Select fields to display, separated with comma" 
+    default="Name"/>
+    <design:attribute name="rowsNumberToLoad" 
+    label="Rows displaying on load / upploading" 
+    description="Number of rows displayed on load and the amount rendered 
+    using loadMoreAmount button if theres more data to display"
+    default="10"/>
+</design:component>
