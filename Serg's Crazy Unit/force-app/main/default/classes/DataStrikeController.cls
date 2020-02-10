@@ -2,8 +2,7 @@ public with sharing class DataStrikeController {
 	@AuraEnabled
 	public static List<Contact> getContacts(List<String> columns) {
         String soqlQuery = String.join(columns, ', ');
-		soqlQuery = 'SELECT ' + soqlQuery + ' FROM Contact';
-		return Database.query(soqlQuery);
+		return Database.query('SELECT ' + soqlQuery + ' FROM Contact');
 	}
 
 	@AuraEnabled

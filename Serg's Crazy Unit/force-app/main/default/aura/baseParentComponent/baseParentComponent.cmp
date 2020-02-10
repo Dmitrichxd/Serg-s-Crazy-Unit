@@ -3,25 +3,18 @@
     <aura:attribute name="data" type="Object" access="global"/>
     <aura:attribute name="rowsNumberToLoad" type="Integer" access="global" default="10" />
     <aura:attribute name="fieldsToDisplay" type="String" />
-    <aura:attribute name="columns" type="object" />
-
-    <aura:attribute name="direction" type="String" default="both" access="public" description="Scroll direction: horizontal, vertical, both."/>
+    <aura:attribute name="columns" type="Object" />
+    <aura:attribute name="offset" type="Integer" default="0" />
+    
+    <aura:attribute name="direction" type="String" default="vertical" access="public" description="Scroll direction: horizontal, vertical, both."/>
     <aura:attribute name="transform" type="Boolean" default="true" access="public" description="Use hardware acceleration (if this is supported by a browser) to make scrolling smooth."/>
     <!-- HANDLERS -->
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
-     <!-- component methods -->
-     <aura:method name="getSize" action="{! c.callMethod }" description="Method to get scroll size." />
-     <aura:method name="getPosition" action="{! c.callMethod }" description="Method to get scroll position." />
-     <aura:method name="setPosition" action="{! c.callMethod }" description="Method to set scroll position."> 
-         <aura:attribute name="position" type="Object" required="true" description="Parameter to define vertical and horizontal position of scroll." />
-     </aura:method>
-
-    <aura:registerEvent name="onscroll" type="c:event" description="Provides ability to handle scroll event very simply. Use event.getParams().data to get the event attributes." />
     <!-- BODY -->
     <div class="slds-box slds-theme_default">
         <h1> direction : {! v.direction}</h1>
         <h1> transform: {! v.transform}</h1>
-        <h1> position: {! v.position}</h1>
+        <h1> Current offset: {! v.offset} px.</h1>
     </div>
     
     <div style="height: 400px; background-color: #ffffff"  
@@ -30,17 +23,11 @@
                    if (equals(v.direction, 'vertical'), 'lt-scroller-direction_vertical', 'lt-scroller-direction_both')),
                    if (v.transform, 'lt-scroller-transform', '')),
                    v.class) }"
-            id="{! v.id }"
-            title="{! v.title }">
+         id="scrollingArea">
     <c:strike_dataGrid 
         data="{!v.data}" 
         loadMoreAmount="{!v.rowsNumberToLoad}" 
-        scrollable="true" />    
+        scrollable="true" 
+        aura:id="dynamicTable"/>    
     </div>
 </aura:component>
-
-<!--
-    
-<div style="height: 400px" class="slds-box slds-theme_shade slds-scrollable">
-    
--->
