@@ -15,6 +15,7 @@
         <h1> direction : {! v.direction}</h1>
         <h1> transform: {! v.transform}</h1>
         <h1> Current offset: {! v.offset} px.</h1>
+        
     </div>
     
     <div style="height: 400px; background-color: #ffffff"  
