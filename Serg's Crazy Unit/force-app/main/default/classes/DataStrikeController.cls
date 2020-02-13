@@ -19,7 +19,5 @@ public with sharing class DataStrikeController {
 		}
 		System.debug(existingColumnsAndTypes);
 		return existingColumnsAndTypes;
-		
 	}
-
 }
