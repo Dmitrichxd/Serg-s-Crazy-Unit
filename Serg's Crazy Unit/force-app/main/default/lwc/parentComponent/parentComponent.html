@@ -1,0 +1,42 @@
+<template>
+    <lightning-card variant="Narrow" title="(╮°-°)╮┳┳ >>> ( ╯°□°)╯┻┻">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">
+                <p style="padding-bottom:24px;">Choose object to display:</p>
+                <select class="slds-select" 
+                        onchange={objectChangeHandler}>
+                    <option value="Select">--- Select ---</option>
+                    <template for:each={objectsOptions} for:item="objectOption">
+                        <option key={objectOption} 
+                                class="uiInputSelectOption" 
+                                value={objectOption}>{objectOption}</option>
+                    </template>
+                </select>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" if:true={fieldsWithOptions}>
+                <p class="">Choose fields to display:</p>
+                <lightning-dual-listbox name="Select Fields"
+                            label="Select Fields"
+                            source-label="Available fields"
+                            selected-label="Selected fields"
+                            options={fieldsWithOptions}
+                            onchange={handleFieldsChange}
+                            variant="label-hidden"></lightning-dual-listbox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" if:true={fields}>
+                <div style="padding-top:43px;">
+                    <lightning-button variant="brand"
+                                      label="Show Table"
+                                      icon-name="utility:description" 
+                                      onclick={showTable}>Show Table</lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <div if:true={isTableVisible}>
+        <lightning-card variant="Narrow" icon-name="utility:table" title="Table">
+            <c-table-component object-value={objectValue} fields={fields}>
+            </c-table-component>
+        </lightning-card>
+    </div>
+</template>

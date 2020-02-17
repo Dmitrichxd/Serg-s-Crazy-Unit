@@ -2,7 +2,14 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/parentComponent": [
+                "parentComponent/parentComponent.js"
+            ],
+            "c/tableComponent": [
+                "tableComponent/tableComponent.js"
+            ]
+        }
     },
     "include": [
         "**/*",
