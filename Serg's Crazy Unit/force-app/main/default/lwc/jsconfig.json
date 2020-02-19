@@ -8,6 +8,15 @@
             ],
             "c/tableComponent": [
                 "tableComponent/tableComponent.js"
+            ],
+            "c/customTableParent": [
+                "customTableParent/customTableParent.js"
+            ],
+            "c/customTableData": [
+                "customTableData/customTableData.js"
+            ],
+            "c/customTableRows": [
+                "customTableRows/customTableRows.js"
             ]
         }
     },

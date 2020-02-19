@@ -1,0 +1,14 @@
+<template>
+    <tr>
+        <th scope="col">
+            <div>
+                <lightning-input type="checkbox" value={object.Name} data-id={obj.Id}></lightning-input>
+            </div>
+        </th>
+        <template for:each={values} for:item="val">
+            <th scope="col" key={val}>
+                <div>{val}</div>
+            </th>
+        </template>
+    </tr>
+</template>

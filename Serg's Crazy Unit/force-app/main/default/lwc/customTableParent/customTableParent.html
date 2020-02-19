@@ -5,7 +5,6 @@
                           onclick={handleHideHeader} 
                           class="slds-m-left_x-small component-btn"
                           slot="actions"></lightning-button>
-        
         <lightning-layout class="component-card-header">
             <lightning-layout-item padding="around-small">
                 <p style="padding-bottom:24px;">Choose object to display:</p>
@@ -37,16 +36,15 @@
                                       onclick={showTable}>Show Table</lightning-button>
                 </div>
             </lightning-layout-item>
-        </lightning-layout>
-        
+        </lightning-layout>s
     </lightning-card>
     <input class="parent_chkbox" id="top-box" type="checkbox" hidden>
     <div style="height: 390px;" class="slds-scrollable component-table">
         <div class="parent_tableDiv">
         <lightning-card variant="Narrow" icon-name="utility:table" title="Table">
-            <c-table-component object-value={objectValue} 
+            <c-custom-table-data object-value={objectValue} 
                                fields={fields}>
-            </c-table-component>
+            </c-custom-table-data>
         </lightning-card>
         </div>
     </div>

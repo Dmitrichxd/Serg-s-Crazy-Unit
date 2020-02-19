@@ -1,0 +1,40 @@
+.parent_tableDiv {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translateY(-100%);
+}
+
+.parent_chkbox {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    opacity: 0;
+ }
+
+ .scrolling_bottom {
+    position: relative;
+    transform: translateY(0);
+    transition: 2s
+}
+
+.scrolling_top {
+    position: relative;
+    transition: 2s
+}
+
+.component-card-header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translateY(0);
+}
+
+.header-hidden {
+    position: relative;
+    transform: translateY(-100%);
+    transition: 1s
+}

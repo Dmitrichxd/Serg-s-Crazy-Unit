@@ -36,7 +36,8 @@ export default class TableComponent extends LightningElement {
                 columns: this.fieldAPIs.toString(),
                 selectedObject: this.objectValue
             }).then(response => {
-                this.objectData = response;                
+                this.objectData = response;     
+                console.log('data has been recieved')           
             }).catch(error => {
                 console.log(error);
             });

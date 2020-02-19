@@ -4,7 +4,6 @@ import getAllFields from '@salesforce/apex/DatalwcController.getAllFields';
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 export default class ParentComponent extends LightningElement {
-    // @track objectValue;
     @track fields;
     @track objectsOptions;
     @track fieldsWithOptions;

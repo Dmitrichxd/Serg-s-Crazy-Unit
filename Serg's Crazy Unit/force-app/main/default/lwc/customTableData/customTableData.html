@@ -1,0 +1,26 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate">
+                        <lightning-input onchange={allSelected} type="checkbox"></lightning-input>
+                    </div>
+                </th>
+                <template for:each={fields} for:item="col">
+                    <th class="" scope="col" key={col}>
+                        <div class="slds-truncate" title={col}>{col}</div>
+                    </th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={objectData} for:item="obj">
+                <c-custom-table-rows key={obj} 
+                                     object={obj} 
+                                     field-a-p-is={fieldAPIs}>
+                </c-custom-table-rows>
+            </template>
+        </tbody>
+    </table>
+</template>
